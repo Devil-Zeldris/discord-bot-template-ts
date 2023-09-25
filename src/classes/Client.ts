@@ -1,12 +1,5 @@
-import { Client, ClientOptions } from "discord.js";
-
-export interface IDevilClient {
-    init: () => Promise<DevilClient>
-}
-
-export interface DevilOptions extends ClientOptions {
-    readonly token: string | undefined
-}
+import { Client } from "discord.js";
+import { DevilOptions, IDevilClient } from "src/index.js";
 
 export class DevilClient extends Client implements IDevilClient {
 

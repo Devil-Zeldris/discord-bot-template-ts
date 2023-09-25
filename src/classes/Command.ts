@@ -1,12 +1,14 @@
-import { type Interaction } from "discord.js";
+import { type GuildMember } from 'discord.js';
+import { CommandOptions } from 'src/index.js';
 
-export interface ICommand {
-    execute: (interaction: Interaction) => Promise<Interaction>;
-    isOwner: (member_id: string) => boolean;
-}
+export class Command {
+    public readonly names: string[];
+    public readonly owner: boolean
 
-export type CommandOptions = {
-    name: string;
-    cmd: string[];
-    isOwner: boolean;
+    constructor(options: CommandOptions) {
+        this.names = new Array<string>().concat(options.names);
+        this.owner = options.owner
+    }
+
+    isOwner(member: GuildMember) { }
 }
